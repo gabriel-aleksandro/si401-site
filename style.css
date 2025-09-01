@@ -1,0 +1,99 @@
+/* Reset simples */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: url("imagens/fundo.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #222;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background: #333;
+}
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+nav ul li {
+    margin: 0 15px;
+}
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    max-width: 900px;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #004080;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+table, th, td {
+    border: 1px solid #666;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+figure {
+    text-align: center;
+  }
+
+footer {
+    text-align: center;
+    background: #004080;
+    color: white;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+  .index-item {
+    display: inline-block;      /* Para que fiquem em linha, mas ainda aceitem padding */
+    background-color: #747474;  /* Cor do botão */
+    color: #fff;                /* Cor do texto */
+    padding: 10px 20px;         /* Espaçamento interno */
+    margin: 5px;                /* Espaçamento entre botões */
+    border-radius: 8px;         /* Bordas arredondadas */
+    text-decoration: none;      /* Remove sublinhado do link */
+    font-weight: bold;
+    transition: all 0.3s ease; /* Transição suave para hover */
+    cursor: pointer;            /* Cursor de botão */
+}
+
+.index-item:hover {
+    background-color: #0066cc;  /* Muda cor de fundo ao passar o mouse */
+    transform: translateY(-3px); /* Leve elevação */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra suave */
+}

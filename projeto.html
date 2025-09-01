@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Projeto Final - SI401</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Projeto Final – SI401</h1>
+        <p>Enunciado Geral do Projeto Final de SI401</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html" class="index-item">Início</a></li>
+            <li><a href="conteudos.html" class="index-item">Conteúdos</a></li>
+            <li><a href="projeto.html" class="index-item" aria-current="page">Projeto Final</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <aside class="toc">
+            <h2>Índice</h2>
+            <ul>
+                <li><a href="#resumo">Resumo</a></li>
+                <li><a href="#regras-jogo">Regras do Jogo</a></li>
+                <li><a href="#especificacoes">Especificações do Projeto</a></li>
+                <li><a href="#frontend">Front-end</a></li>
+                <li><a href="#backend">Back-end</a></li>
+                <li><a href="#parciais">Parciais e Entregas</a></li>
+                <li><a href="#regras-trabalho">Regras do Trabalho</a></li>
+                <li><a href="#observacoes">Observações importantes</a></li>
+            </ul>
+        </aside>
+
+        <section id="resumo">
+            <h2>Resumo</h2>
+            <p>
+                O Jogo da Memória a ser implementado consiste em um tabuleiro M×N (quadrado entre 2×2 e 8×8,
+                número par de peças). Versão single-player inspirada no jogo clássico, com duas modalidades:
+                <strong>Clássica</strong> e <strong>Contra o Tempo</strong>. A plataforma será online e utilizará
+                as tecnologias estudadas na disciplina (HTML, CSS, JavaScript e PHP). O sistema deverá manter histórico
+                de partidas e permitir autenticação de usuários.
+            </p>
+            <figure>
+                <figcaption>Figura 1 - Exemplo de tabuleiro 4×4 (ilustrativo)</figcaption>
+                <img src="imagens/figura1.jpg" width="500" height="500" alt="Tabuleiro 4x4">
+            </figure>
+        </section>
+
+        <section id="regras-jogo">
+            <h2>Regras do Jogo</h2>
+            <p>
+                Em cada jogada o jogador revela duas peças. Se forem iguais, as peças permanecem reveladas e o jogador
+                acumula ponto; caso contrário, as peças retornam a ficar ocultas.
+            </p>
+            <p>
+                No modo <strong>multiplayers</strong> ganha quem tiver mais pontos quando todas as peças são reveladas.
+                Na variante <strong>single player</strong>, a pontuação final é o número de jogadas necessárias para revelar
+                todo o tabuleiro (quanto menor, melhor).
+            </p>
+        </section>
+
+        <section id="especificacoes">
+            <h2>Especificações do Projeto</h2>
+
+            <h3>Configurações</h3>
+            <ul>
+                <li>O usuário poderá escolher dimensões do tabuleiro (quadrado): mínimo <code>2×2</code>, máximo <code>8×8</code>, sempre número par de peças.</li>
+                <li>Modalidades disponíveis: <strong>Clássica</strong> e <strong>Contra o Tempo</strong>.</li>
+            </ul>
+
+            <h3>Modalidade Clássica</h3>
+            <p>
+                Sem cronômetro: conta-se o número de jogadas até o tabuleiro ser totalmente revelado. Objetivo: obter o menor número de jogadas.
+            </p>
+
+            <h3>Modalidade Contra o Tempo</h3>
+            <p>
+                Similar à clássica, porém com um timer. O jogador deve terminar antes do tempo se esgotar; caso contrário,
+                a partida é contabilizada como derrota. O tempo disponível por partida deve depender do tamanho do tabuleiro.
+            </p>
+
+            <h3>Histórico de Partidas</h3>
+            <p>O sistema deve manter um histórico com, para cada partida:</p>
+            <ul>
+                <li>Nome do jogador;</li>
+                <li>Dimensões do tabuleiro;</li>
+                <li>Modalidade da partida;</li>
+                <li>Tempo gasto até vitória/derrota (contado a partir do primeiro clique);</li>
+                <li>Número de jogadas;</li>
+                <li>Resultado (vitória ou derrota);</li>
+                <li>Data e hora da partida.</li>
+            </ul>
+
+            <h3>Botões de "Trapaça"</h3>
+            <p>
+                Devem existir dois botões que alterem apenas a exibição do tabuleiro:
+                <ol>
+                    <li>Mostrar todas as peças ocultas (sem afetar a lógica do jogo).</li>
+                    <li>Restaurar exibição normal (manter reveladas as peças já descobertas; ocultar as demais).</li>
+                </ol>
+            </p>
+
+            <h3>Desistência</h3>
+            <p>
+                O jogador pode desistir a qualquer momento e retornar à tela inicial de configurações.
+            </p>
+
+            <h3>Implementação do jogo</h3>
+            <p>
+                O jogo deve ser implementado integralmente em JavaScript (front-end). A plataforma deve ainda contar com
+                um back-end em PHP para autenticação, persistência do histórico e geração do ranking.
+            </p>
+        </section>
+
+        <section id="frontend">
+            <h2>Front-end (requisitos)</h2>
+            <ul>
+                <li>A primeira tela exibida: formulário de login (usuário + senha) e link para a página de cadastro.</li>
+                <li>Página de cadastro: solicitar nome completo, data de nascimento, CPF, telefone, e-mail, username (único) e senha.</li>
+                <li>Após autenticação, o usuário é redirecionado para a página do Jogo da Memória (implementado em JavaScript).</li>
+                <li>A página do jogo deve mostrar, no mínimo:
+                    <ul>
+                        <li>Tempo da partida (se iniciada);</li>
+                        <li>Número de jogadas;</li>
+                        <li>Configuração do tabuleiro;</li>
+                        <li>Modalidade selecionada;</li>
+                        <li>Tempo restante (no modo Contra o Tempo);</li>
+                        <li>Histórico do usuário (conforme campos descritos anteriormente);</li>
+                        <li>Botões de ativação/desativação do modo Trapaça;</li>
+                        <li>Links para: ranking global, edição de informações pessoais e opção para desconectar.</li>
+                    </ul>
+                </li>
+                <li>Na página de edição de usuário: <strong>data de nascimento, CPF e username não podem ser alterados</strong>.</li>
+            </ul>
+        </section>
+
+        <section id="backend">
+            <h2>Back-end (requisitos)</h2>
+            <p>
+                Deve ser implementado em PHP, com dados armazenados em MySQL ou MariaDB. Responsabilidades:
+            </p>
+            <ul>
+                <li>Gerenciar autenticação de jogadores (uso de sessões PHP);</li>
+                <li>Armazenar e recuperar resultados de partidas;</li>
+                <li>Gerar ranking dos 10 melhores jogadores conforme regras abaixo.</li>
+            </ul>
+
+            <h3>Ranking global (regras)</h3>
+            <p>
+                Exibir usernames e dados de partida para 10 jogadores, escolhendo as partidas disputadas (e vencidas) nos
+                <strong>10 maiores tabuleiros</strong>. Se houver empate por dimensão, exibir a partida com menor número de jogadas.
+            </p>
+
+            <h3>Estrutura de dados</h3>
+            <p>
+                As tabelas do SGBD (usuários, partidas, etc.) ficam a critério do grupo, mas é obrigatório entregar um script
+                PHP separado (ou instruções claras) para criar as tabelas, acompanhado de arquivo-texto com instruções de uso.
+            </p>
+
+            <p><strong>ATENÇÃO:</strong> o uso de frameworks PHP não é permitido.</p>
+        </section>
+
+        <section id="parciais">
+            <h2>Parciais e Entregas</h2>
+
+            <h3>Parcial 1</h3>
+            <p>
+                Versões não-funcionais das páginas: todas as páginas do sistema presentes, formatadas com CSS externo e
+                hyperlinks funcionando. Componentes dinâmicos substituídos por imagens ou valores estáticos (ex.: imagem do
+                tabuleiro, tabela de ranking com valores fixos).
+            </p>
+
+            <h3>Parcial 2</h3>
+            <p>
+                Toda a dinâmica do Jogo da Memória implementada em JavaScript (front-end), mas sem funcionalidades de
+                back-end: jogo jogável localmente, sem persistência nem controle de acesso.
+            </p>
+
+            <h3>Parcial 3</h3>
+            <p>
+                Versão final com integração completa front-end e back-end (autenticação, persistência, ranking, histórico).
+            </p>
+
+            <h3>Entrega de cada parcial</h3>
+            <p>Cada entrega deve conter:</p>
+            <ul>
+                <li>Arquivo ZIP com todos os arquivos necessários (.html, .js, .php, .css, imagens etc.) mantendo a estrutura de diretórios;</li>
+                <li>Arquivo TXT/PDF com instruções de configuração e link para vídeo de apresentação;</li>
+                <li>Arquivo .XLSX com detalhamento da contribuição de cada membro (modelo disponível no curso).</li>
+            </ul>
+
+            <p>Os vídeos de apresentação (máx. 10 minutos) devem ser hospedados em serviço gratuito (ex.: YouTube) e link fornecido junto à entrega.</p>
+        </section>
+
+        <section id="regras-trabalho">
+            <h2>Regras para o Trabalho</h2>
+            <ul>
+                <li>Grupos de 4 a 5 alunos.</li>
+                <li>O projeto corresponde a 75% da média do aluno (conforme Plano de Ensino).</li>
+                <li>Todo o código JavaScript deve estar em arquivos <code>.js</code> externos.</li>
+                <li>Folhas de estilo devem ser preferencialmente externas (CSS).</li>
+                <li>Documentos HTML e CSS devem seguir o padrão mais recente e passar na validação do W3C.</li>
+                <li>Cópias de outros grupos ou da internet serão penalizadas.</li>
+                <li>Trabalhos entregues fora do prazo não serão aceitos.</li>
+            </ul>
+        </section>
+
+        <section id="observacoes">
+            <h2>Observações importantes</h2>
+            <p>
+                <strong>ATENÇÃO 1:</strong> Todas as páginas do front-end devem usar HTML5 e CSS (preferencialmente arquivos CSS externos)
+                e serem validadas em:
+            </p>
+            <ul>
+                <li>Validador HTML: <a href="https://validator.w3.org/" target="_blank" rel="noopener">https://validator.w3.org/</a></li>
+                <li>Validador CSS: <a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener">https://jigsaw.w3.org/css-validator/</a></li>
+            </ul>
+
+            <p>
+                <strong>ATENÇÃO 2:</strong> Não é recomendado o uso de templates CSS; caso optem por usá-los, informem explicitamente
+                no site e forneçam links das fontes.
+            </p>
+
+            <p>
+                <strong>ATENÇÃO 3:</strong> Para o desenvolvimento do jogo, estude eventos temporizados em JavaScript (timers).
+            </p>
+        </section>
+
+        <section id="contato">
+            <h2>Material adicional / Entrega</h2>
+            <p>
+                Ao empacotar a entrega, lembre-se de incluir um README (ou arquivo de instruções) explicando:
+            </p>
+            <ul>
+                <li>Como configurar o ambiente (por exemplo: servidor local PHP + MySQL/MariaDB);</li>
+                <li>Como restaurar o banco de dados (script SQL/PHP para criação de tabelas);</li>
+                <li>Links para vídeos de apresentação;</li>
+                <li>Arquivo .XLSX com contribuição dos membros.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Disciplina SI401 – 2º Semestre de 2025 | Unicamp</p>
+    </footer>
+</body>
+</html>
