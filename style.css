@@ -154,6 +154,30 @@ footer {
     margin-left: 20px;
 }
 
+/* Listas dentro do conteúdo principal */
+.content ul {
+    list-style: none;         /* tira o padrão */
+    padding-left: 25px;       /* afasta da borda esquerda */
+    margin-bottom: 15px;
+}
+
+.content ul li {
+    margin-bottom: 10px;      /* mais espaço entre os itens */
+    position: relative;
+    padding-left: 20px;       /* afasta o texto do marcador */
+}
+
+/* Estilo do marcador */
+.content ul li::before {
+    content: "➤";             /* marcador: seta (pode trocar por "•", "■", "✔" etc) */
+    color: #004080;           /* azul para combinar com o tema */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
 /* Responsivo: sidebar vira topo */
 @media (max-width: 768px) {
     .container {
@@ -170,4 +194,52 @@ footer {
     .content {
         margin-left: 0;
     }
+}
+
+/* Estilo dos dropdowns */
+details {
+    margin: 15px 0;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+summary {
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    color: #004080;
+    outline: none;
+}
+
+summary:hover {
+    color: #0066cc;
+}
+
+details[open] {
+    border-color: #004080;
+    background: rgba(240,248,255,0.95); /* azul clarinho */
+}
+
+details ul {
+    margin-top: 10px;
+    list-style: none;
+    padding-left: 15px;
+}
+
+details ul li {
+    margin-bottom: 8px;
+}
+
+details ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+}
+
+details ul li a:hover {
+    color: #004080;
+    text-decoration: underline;
 }
